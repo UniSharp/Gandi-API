@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Zend_Service_Gandi by Narno</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Zend_Service_Gandi</h1>
+        <p>Zend Framework Gandi API Service extension.</p>
+
+        <p class="view"><a href="https://github.com/Narno/Zend_Service_Gandi">View the Project on GitHub <small>Narno/Zend_Service_Gandi</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Narno/Zend_Service_Gandi/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Narno/Zend_Service_Gandi/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Narno/Zend_Service_Gandi">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><em>Zend_Service_Gandi</em> provides a simple PHP library for the Gandi API.</p>
+
+<p>Gandi API documentation: <a href="http://doc.rpc.gandi.net">http://doc.rpc.gandi.net</a></p>
+
+<h2>
+<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li>PHP 5.2.4+</li>
+<li>Zend Framework: <a href="http://www.framework.zend.com/downloads/latest#ZF1">http://www.framework.zend.com/downloads/latest#ZF1</a>
+</li>
+<li>Gandi account: <a href="https://www.gandi.net">https://www.gandi.net</a>
+</li>
+</ul><h2>
+<a name="how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<div class="highlight"><pre><span class="o">&lt;?</span><span class="nx">php</span>
+<span class="k">require_once</span> <span class="s1">'Zend/Service/Gandi.php'</span><span class="p">;</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$gandi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Zend_Service_Gandi</span><span class="p">(</span><span class="s1">'your_api_key'</span><span class="p">);</span>
+    <span class="c1">// Get VM infos</span>
+    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$gandi</span><span class="o">-&gt;</span><span class="na">getVmInfo</span><span class="p">(</span><span class="s1">'your_vm_id'</span><span class="p">));</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="available-methods" class="anchor" href="#available-methods"><span class="octicon octicon-link"></span></a>Available Methods</h2>
+
+<ul>
+<li>Hosting
+
+<ul>
+<li>
+<em>getAccountInfo()</em>: Get Gandi Hosting account info</li>
+<li>
+<em>getVmList()</em>: Get VM list</li>
+<li>
+<em>getVmInfo($id)</em>: Get VM info by VM Id filter</li>
+<li>
+<em>getGraph($vmId, $target, $deviceNumber)</em>: Return graph URL</li>
+</ul>
+</li>
+<li>PASS
+
+<ul>
+<li>
+<em>getPassInfo($id)</em>: Get Gandi PASS info</li>
+</ul>
+</li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><em>Narno_Service_Gandi</em> is released under the terms of the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
+
+<p>Copyright (c) 2011-2012 Arnaud Ligny</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Narno">Narno</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
