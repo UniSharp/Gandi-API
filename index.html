@@ -28,10 +28,8 @@
         </ul>
       </header>
       <section>
-        <p><em>ZendService_Gandi</em> provides a simple PHP library for the <a href="http://doc.rpc.gandi.net">Gandi API</a>.</p>
-
-<h2>
-<a name="dependencies" class="anchor" href="#dependencies"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+        <h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <ul>
 <li>PHP 5.3+</li>
@@ -39,41 +37,45 @@
 <li><a href="https://github.com/zendframework/ZendXml">Zend\Xml</a></li>
 <li>
 <a href="https://www.gandi.net">Gandi</a> account</li>
-</ul><h2>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+</ul>
 
-<p>You can install this component using Composer with following commands:</p>
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<pre><code>curl -s https://getcomposer.org/installer | php
-php composer.phar install
+<p>The recommended way is through <a href="https://getcomposer.org">Composer</a>.</p>
+
+<pre><code>{
+    "require": {
+        "narno/zendservice-gandi": "dev-master"
+    }
+}
 </code></pre>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<div class="highlight highlight-php"><pre><span class="o">&lt;?</span><span class="nx">php</span>
-<span class="c1">// Composer autoloading</span>
-<span class="k">if</span> <span class="p">(</span><span class="nb">file_exists</span><span class="p">(</span><span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">'/vendor/autoload.php'</span><span class="p">))</span> <span class="p">{</span>
-    <span class="nv">$loader</span> <span class="o">=</span> <span class="k">include</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">'/vendor/autoload.php'</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="k">use</span> <span class="nx">ZendService\Gandi\Gandi</span> <span class="k">as</span> <span class="nx">Gandi</span><span class="p">;</span>
-
-<span class="k">try</span> <span class="p">{</span>
-    <span class="nv">$gandi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Gandi</span><span class="p">();</span>
-    <span class="c1">// set API key</span>
-    <span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">'your_api_key'</span><span class="p">);</span>
-    <span class="c1">// fetches account informations...</span>
-    <span class="nv">$account</span> <span class="o">=</span> <span class="nv">$gandi</span><span class="o">-&gt;</span><span class="na">account</span><span class="o">-&gt;</span><span class="na">info</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
-    <span class="c1">// and print</span>
-    <span class="nb">print_r</span><span class="p">(</span><span class="nv">$account</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s2"></span>
+<span class="pl-s2"><span class="pl-c">// Composer autoloading</span></span>
+<span class="pl-s2"><span class="pl-k">if</span> (<span class="pl-s3">file_exists</span>(<span class="pl-c1">__DIR__</span> <span class="pl-k">.</span> <span class="pl-s1"><span class="pl-pds">'</span>/vendor/autoload.php<span class="pl-pds">'</span></span>)) {</span>
+<span class="pl-s2">    <span class="pl-vo">$loader</span> <span class="pl-k">=</span> <span class="pl-k">include</span> <span class="pl-c1">__DIR__</span> <span class="pl-k">.</span> <span class="pl-s1"><span class="pl-pds">'</span>/vendor/autoload.php<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s2">}</span>
+<span class="pl-s2"></span>
+<span class="pl-s2"><span class="pl-k">use</span> <span class="pl-s3">ZendService\Gandi\Gandi</span>;</span>
+<span class="pl-s2"></span>
+<span class="pl-s2"><span class="pl-k">try</span> {</span>
+<span class="pl-s2">    <span class="pl-vo">$gandi</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-s3">Gandi</span>();</span>
+<span class="pl-s2">    <span class="pl-c">// set API key</span></span>
+<span class="pl-s2">    <span class="pl-vo">$params</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">'</span>your_api_key<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s2">    <span class="pl-c">// fetches account informations...</span></span>
+<span class="pl-s2">    <span class="pl-vo">$account</span> <span class="pl-k">=</span> <span class="pl-vo">$gandi</span><span class="pl-k">-&gt;</span><span class="pl-vo">account</span><span class="pl-k">-&gt;</span>info(<span class="pl-vo">$params</span>);</span>
+<span class="pl-s2">    <span class="pl-c">// and print</span></span>
+<span class="pl-s2">    <span class="pl-s3">print_r</span>(<span class="pl-vo">$account</span>);</span>
+<span class="pl-s2">} <span class="pl-k">catch</span> (<span class="pl-s3">Exception</span> <span class="pl-vo">$e</span>) {</span>
+<span class="pl-s2">    <span class="pl-s3">echo</span> <span class="pl-vo">$e</span><span class="pl-k">-&gt;</span>getMessage();</span>
+<span class="pl-s2">}</span></pre></div>
 
 <h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p><em>ZendService_Gandi</em> is released under the terms of the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
 
