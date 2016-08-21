@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>ZendService_Gandi by Narno</title>
+    <title>Gandi-API by Narno</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -15,71 +15,60 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>ZendService_Gandi</h1>
-        <p>ZendService_Gandi provides a simple PHP library for the Gandi API.</p>
+        <h1>Gandi-API</h1>
+        <p>Gandi-API provides a simple PHP library for the Gandi API.</p>
 
-        <p class="view"><a href="https://github.com/Narno/ZendService_Gandi">View the Project on GitHub <small>Narno/ZendService_Gandi</small></a></p>
+        <p class="view"><a href="https://github.com/Narno/Gandi-API">View the Project on GitHub <small>Narno/Gandi-API</small></a></p>
 
 
         <ul>
-          <li><a href="https://github.com/Narno/ZendService_Gandi/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/Narno/ZendService_Gandi/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/Narno/ZendService_Gandi">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/Narno/Gandi-API/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Narno/Gandi-API/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Narno/Gandi-API">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
         <h2>
-<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
 
 <ul>
-<li>PHP 5.3+</li>
-<li><a href="https://github.com/zendframework/Component_ZendXmlRpc">Zend\Xmlrpc</a></li>
-<li><a href="https://github.com/zendframework/ZendXml">Zend\Xml</a></li>
-<li>
-<a href="https://www.gandi.net">Gandi</a> account</li>
+<li>PHP 5.4+</li>
+<li><a href="https://github.com/zendframework/zend-xmlrpc">zend-xmlrpc</a></li>
+<li><a href="https://www.gandi.net/admin/api_key">Gandi API key</a></li>
 </ul>
 
 <h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>The recommended way is through <a href="https://getcomposer.org">Composer</a>.</p>
 
-<pre><code>{
-    "require": {
-        "narno/zendservice-gandi": "dev-master"
-    }
-}
+<pre><code>$ composer require narno/zendservice-gandi
 </code></pre>
 
 <h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
-<div class="highlight highlight-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-c">// Composer autoloading</span></span>
-<span class="pl-s2"><span class="pl-k">if</span> (<span class="pl-s3">file_exists</span>(<span class="pl-c1">__DIR__</span> <span class="pl-k">.</span> <span class="pl-s1"><span class="pl-pds">'</span>/vendor/autoload.php<span class="pl-pds">'</span></span>)) {</span>
-<span class="pl-s2">    <span class="pl-vo">$loader</span> <span class="pl-k">=</span> <span class="pl-k">include</span> <span class="pl-c1">__DIR__</span> <span class="pl-k">.</span> <span class="pl-s1"><span class="pl-pds">'</span>/vendor/autoload.php<span class="pl-pds">'</span></span>;</span>
-<span class="pl-s2">}</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-k">use</span> <span class="pl-s3">ZendService\Gandi\Gandi</span>;</span>
-<span class="pl-s2"></span>
-<span class="pl-s2"><span class="pl-k">try</span> {</span>
-<span class="pl-s2">    <span class="pl-vo">$gandi</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-s3">Gandi</span>();</span>
-<span class="pl-s2">    <span class="pl-c">// set API key</span></span>
-<span class="pl-s2">    <span class="pl-vo">$params</span> <span class="pl-k">=</span> <span class="pl-s3">array</span>(<span class="pl-s1"><span class="pl-pds">'</span>your_api_key<span class="pl-pds">'</span></span>);</span>
-<span class="pl-s2">    <span class="pl-c">// fetches account informations...</span></span>
-<span class="pl-s2">    <span class="pl-vo">$account</span> <span class="pl-k">=</span> <span class="pl-vo">$gandi</span><span class="pl-k">-&gt;</span><span class="pl-vo">account</span><span class="pl-k">-&gt;</span>info(<span class="pl-vo">$params</span>);</span>
-<span class="pl-s2">    <span class="pl-c">// and print</span></span>
-<span class="pl-s2">    <span class="pl-s3">print_r</span>(<span class="pl-vo">$account</span>);</span>
-<span class="pl-s2">} <span class="pl-k">catch</span> (<span class="pl-s3">Exception</span> <span class="pl-vo">$e</span>) {</span>
-<span class="pl-s2">    <span class="pl-s3">echo</span> <span class="pl-vo">$e</span><span class="pl-k">-&gt;</span>getMessage();</span>
-<span class="pl-s2">}</span></pre></div>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">ZendService\Gandi\Gandi</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">try</span> {</span>
+<span class="pl-s1">    <span class="pl-smi">$gandi</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Gandi</span>();</span>
+<span class="pl-s1">    <span class="pl-c">// set API key</span></span>
+<span class="pl-s1">    <span class="pl-smi">$params</span> <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>your_api_key<span class="pl-pds">'</span></span>];</span>
+<span class="pl-s1">    <span class="pl-c">// fetches account informations...</span></span>
+<span class="pl-s1">    <span class="pl-smi">$account</span> <span class="pl-k">=</span> <span class="pl-smi">$gandi</span><span class="pl-k">-&gt;</span><span class="pl-smi">account</span><span class="pl-k">-&gt;</span>info(<span class="pl-smi">$params</span>);</span>
+<span class="pl-s1">    <span class="pl-c">// and print</span></span>
+<span class="pl-s1">    <span class="pl-c1">print_r</span>(<span class="pl-smi">$account</span>);</span>
+<span class="pl-s1">} <span class="pl-k">catch</span> (<span class="pl-c1">\</span><span class="pl-c1">Exception</span> <span class="pl-smi">$e</span>) {</span>
+<span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span>getMessage();</span>
+<span class="pl-s1">}</span></pre></div>
 
 <h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
 <p><em>ZendService_Gandi</em> is released under the terms of the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
 
-<p>Copyright (c) 2011-2014 Arnaud Ligny</p>
+<p>Copyright (c) 2011-2016 Arnaud Ligny</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/Narno">Narno</a></p>
