@@ -34,6 +34,13 @@ class Api
     protected $methodCategory;
 
     /**
+     * Gandi API Key.
+     *
+     * @var string
+     */
+    protected $apiKey;
+
+    /**
      * Categories of API methods.
      *
      * @var array
@@ -65,7 +72,7 @@ class Api
      *
      * @param bool $ote Set to true to use Operational Test and Evaluation
      */
-    public function __construct($ote = false)
+    public function __construct($ote = true)
     {
         try {
             $this->xmlRpcClient = new XmlRpc\Client(null);
@@ -109,13 +116,21 @@ class Api
      */
     public function __call($method, $args)
     {
-        $params = [];
+        /*
+         * Check API Key
+         */
+        if (empty($this->apiKey)) {
+            throw new RuntimeException(
+                'API Key shold be set'
+            );
+        }
+        $params = [$this->apiKey];
         $apiMethod = '';
 
         $method = strtolower($method);
         if (!empty($args)) {
-            $params = $args[0];
-            if (!is_array($params)) {
+            $params[] = $args[0];
+            if (!is_array($args[0])) {
                 throw new RuntimeException(
                     '$params should be an array'
                 );
@@ -201,5 +216,19 @@ class Api
     public function methodSignature($method)
     {
         return $this->request('system.methodSignature', [$method]);
+    }
+
+    /**
+     * Set Gandi API key.
+     *
+     * @param string $key
+     *
+     * @return self
+     */
+    public function setKey($apiKey)
+    {
+        $this->apiKey = $apiKey;
+
+        return $this;
     }
 }
