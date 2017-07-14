@@ -72,7 +72,7 @@ class Api
      *
      * @param bool $ote Set to true to use Operational Test and Evaluation
      */
-    public function __construct($ote = true)
+    public function __construct($ote = false)
     {
         try {
             $this->xmlRpcClient = new XmlRpc\Client(null);
