@@ -1,5 +1,5 @@
 {
-  "name": "narno/gandi-api",
+  "name": "unisharp/gandi-api",
   "replace": {"narno/zendservice-gandi": "self.version"},
   "description": "Simple PHP library for the Gandi API.",
   "keywords": ["gandi", "api", "zf2"],
