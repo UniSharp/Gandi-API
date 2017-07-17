@@ -129,7 +129,9 @@ class Api
 
         $method = strtolower($method);
         if (!empty($args)) {
-            $params[] = $args[0];
+            foreach ($args as $arg) {
+                $params[] = $arg;
+            }
         }
 
         /*
@@ -140,6 +142,7 @@ class Api
                 'Invalid method "'.$method.'"'
             );
         }
+        dd($params);
 
         /*
          * Build method name: category1 + category2 + categoryX + method
