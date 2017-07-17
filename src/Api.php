@@ -142,7 +142,6 @@ class Api
                 'Invalid method "'.$method.'"'
             );
         }
-        dd($params);
 
         /*
          * Build method name: category1 + category2 + categoryX + method
