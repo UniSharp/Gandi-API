@@ -130,11 +130,6 @@ class Api
         $method = strtolower($method);
         if (!empty($args)) {
             $params[] = $args[0];
-            if (!is_array($args[0])) {
-                throw new RuntimeException(
-                    '$params should be an array'
-                );
-            }
         }
 
         /*
